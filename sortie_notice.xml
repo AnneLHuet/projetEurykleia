@@ -54,6 +54,7 @@
                <funder xml:lang="" corresp="{Oeuvre_commanditaire_idLGPN}">{Oeuvre_commanditaire_nom}</funder>
                <funder xml:lang="">{Oeuvre_commanditaire_nomTranslittere}</funder> 
             </bibl>
+            <!-- Peut-être ajouter ici en bibliographie une entrée pour les Pleiades et autres pour les présenter ici. -->
             
             <listEvent> <!-- pour chaque événement de la notice-->
                <event xml:id="evenement">
