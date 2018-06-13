@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:space="preserve" xml:lang="en">
+    <teiHeader>
+        <fileDesc>
+            <!-- Informations relatives à l'édition de la notice -->
+            <titleStmt>
+                <title type="inscription">
+                    <num>{Notice_numero}</num>
+                    {Femme_appellationUsuelle} 
+                </title>
+                
+                <sponsor>Projet Eurykleia, UMR 8210 ANHIMA (Anthropologie et Histoire des Mondes Antiques)</sponsor>
+            </titleStmt>
+            <publicationStmt>
+                <authority>Projet Eurykleia</authority>
+                <publisher> UMR 8210 ANHIMA (Anthropologie et Histoire des Mondes Antiques) </publisher>
+                <authority>Projet Eurykleia</authority>
+            </publicationStmt>
+            
+            <sourceDesc>
+                <listBibl> 
+                    <bibl> <!-- pour chaque extrait -->
+                        <ref type="oeuvre">
+                            {Oeuvre_reference}
+                        </ref>
+                        <ref type="extrait">
+                            {Extrait_referenceDocument}
+                        </ref>
+                        <title>{Oeuvre_titre}</title>
+                        <author>{Oeuvre_auteur_nom}</author>
+                        <funder xml:lang="" corresp="{Oeuvre_commanditaire_idLGPN}">{Oeuvre_commanditaire_nom}</funder>
+                    </bibl>
+                </listBibl>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <refsDecl n="CTS">
+                <cRefPattern 
+                    corresp="#commentaire"
+                    matchPattern="(\w+)" 
+                    replacementPattern="xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='$commentary']/tei:div[@n='femme']">
+                </cRefPattern>
+            </refsDecl>
+        </encodingDesc>
+    </teiHeader>
+    <text>
+        <body n="urn:cts:anhima:eurykleia.femme-1.export" xml:lang="mul">
+            
+            <div type="edition">
+                <!-- xml:lang="Extrait_langue" -->
+                <div type="textpart" 
+                    xml:lang=""
+                    subtype="extract" 
+                    n="1" 
+                    corresp="{Extrait_urn}{Extrait_IDPH}">
+                    <p>
+                        {Extrait_texteTranscrit}
+                    </p>
+                </div>
+            </div>
+            <div type="translation">
+                <div type="textpart"
+                    xml:lang=""
+                    subtype="extract"
+                    n="1"
+                    corresp="{Extrait_urn}{Extrait_IDPH}">
+                    <p>
+                        {Traduction_texteTraduit}
+                    </p>
+                </div>
+            </div>     
+            <div type="commentary">
+                <div type="commentary"
+                    xml:lang=""
+                    n="femme">
+                    <div type="textpart"
+                        subtype="nom"
+                        ana="#nom">
+                        <head>Nom</head>
+                        <p>
+                            {Description_nom_nom}
+                        </p>
+                    </div>
+                    <div type="textpart"
+                        subtype="fonction"
+                        ana="#fonction">
+                        <head>Fonction(s)</head>
+                        <p>
+                            {Description_fonction_terme}
+                        </p>
+                    </div>
+                    <div type="textpart"
+                        subtype="situation"
+                        ana="#situation">
+                        <head>Situation personnelle</head>
+                        <p>
+                            {Description_situationPersonnelle_terme}
+                        </p>
+                    </div>
+                    <div type="textpart"
+                        subtype="denomination"
+                        ana="#denomination">
+                        <head>Dénomination(s) spécifique(s)</head>
+                        <p>
+                            {Description_denominationSpecifique_terme}
+                        </p>
+                    </div>
+                    <div type="textpart"
+                        subtype="categorieAge"
+                        ana="#categorieAge">
+                        <head>Catégorie d'âge</head>
+                        <p>
+                            {Description_categorieAge_terme}
+                        </p>
+                    </div>  
+                </div>
+                
+                <div type="commentary" n="1">
+                    <div type="textpart" 
+                        subtype="genreDiscursif" 
+                        ana="#genreDiscursif">
+                        <head>Nature du genre discursif</head>
+                        <p>
+                            {Extrait_natureGenreDiscursif}
+                        </p>
+                    </div>
+                    <div type="textpart"
+                        subtype="enonciative"
+                        ana="#enonciative">
+                        <head>Voix énonciative</head>
+                        <p>{Extrait_voixEnonciative_description}</p>
+                    </div>
+                    <div type="textpart"
+                        subtype="modalisation"
+                        ana="#modalisation">
+                        <head>Modalisation</head>
+                        <p>{Extrait_modalisation_jugement}</p>
+                        <p>{Extrait_modalisation_description}</p>  
+                    </div>
+                    <div type="textpart"
+                        subtype="evenement"
+                        ana="#evenement">
+                        <head>Evénement</head>
+                        <p>
+                            <date>{Extrait_evenement_datation}</date>
+                            {Extrait_evenement_description}
+                        </p>
+                    </div>
+                    <div type="textpart"
+                        subtype="action"
+                        ana="#action">
+                        <head>Action</head>
+                        <p>
+                            {Extrait_action}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+        </body>
+    </text>
+</TEI>

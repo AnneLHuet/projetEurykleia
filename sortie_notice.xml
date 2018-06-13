@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <!-- Informations relatives à l'édition de la notice -->
+         
+         <titleStmt> 
+            <title>
+               <num></num>
+               {Femme_apellationUsuelle}
+            </title>
+            <sponsor>
+               <orgName xml:id="ANHIMA">
+                  UMR 8210 ANHIMA (Anthropologie et Histoire des Mondes Antiques)
+               </orgName>
+            </sponsor>
+            <respStmt>
+               <resp>Auteur de la notice</resp>
+               <name>{Notice_user}</name>
+            </respStmt>
+         </titleStmt>
+         
+         <publicationStmt>
+            <authority>
+               Projet Eurykleia
+               <date type="creation">{Notice_dateCreation}</date>
+            </authority>
+            <publisher> UMR 8210 ANHIMA (Anthropologie et Histoire des Mondes Antiques) </publisher>
+            <pubPlace>Paris, France</pubPlace>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-nc-nd/2.0/fr/">
+                  <p>
+                     ?Licence Creative Commons  Attribution - Pas d’Utilisation Commerciale - 
+                     Pas de Modification 2.0 France (CC BY-NC-ND 2.0 FR)
+                  </p>
+               </licence>
+            </availability>
+            <idno type="URI"></idno>
+         </publicationStmt>
+         
+         <!-- Eléments relatifs au document source -->
+         <sourceDesc>
+            <bibl>
+               <ref type="oeuvre">
+                  {Oeuvre_reference}
+               </ref>
+               <ref type="extrait">
+                  {Extrait_referenceDocument}
+               </ref>
+               <title>{Oeuvre_titre}</title>
+               <author>{Oeuvre_auteur_nom}</author>
+               <funder xml:lang="" corresp="{Oeuvre_commanditaire_idLGPN}">{Oeuvre_commanditaire_nom}</funder>
+               <funder xml:lang="">{Oeuvre_commanditaire_nomTranslittere}</funder> 
+            </bibl>
+            
+            <listEvent> <!-- pour chaque événement de la notice-->
+               <event xml:id="evenement">
+                  <label>{Extrait_Evenement_nom}</label>
+                  <desc>{Extrait_Evenement_description}</desc>  
+               </event>
+            </listEvent>
+            
+            <!--  <listPlace>
+               <place>
+                  <placeName></placeName>
+                  <idno>{id Pleiades}</idno>
+               </place>
+            </listPlace>-->
+            
+            <msDesc>
+               <msIdentifier >
+                  <repository>
+                     {Support_lieuConservation}
+                  </repository>
+                  <idno>{Support_lieuConservation_inventaire}</idno>
+               </msIdentifier>
+               <physDesc>
+                  <objectDesc>
+                     <supportDesc>
+                        <support>
+                           <material>
+                              {Support_technique},{Support_matiere}
+                           </material>
+                           <desc>{Support_description}</desc>
+                           <objectType>{Support_designation}</objectType>
+                           <dimensions>
+                              <height unit="cm">{Support_hauteur}</height>
+                              <width unit="cm">{Support_largeur}</width>
+                           </dimensions>
+                        </support>
+                     </supportDesc>
+                  </objectDesc>
+               </physDesc>
+               <history>
+                  <origin>
+                     <origPlace type="composed">
+                        <placeName ref="http://pleiades.stoa.org/places/">
+                           {Support_lieuProduction}
+                        </placeName>
+                        <origDate>
+                           {Support_lieuProduction_datation}
+                        </origDate>
+                     </origPlace>
+                  </origin>
+                  <provenance type="found">
+                     <placeName ref="http://pleiades.stoa.org/places/">
+                        {Support_lieuDecouverte}
+                     </placeName>
+                  </provenance>
+               </history>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>      
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern 
+               corresp="#commentaire"
+               matchPattern="(\w+)" 
+               replacementPattern="xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='$commentary']">
+            </cRefPattern>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <textClass>
+            <keywords>
+               <term xml:id="surnom">
+                  <term>Surnom(s)</term>
+                  <gloss>Autre(s) appellations données à la personne (par exemple le cognomen)</gloss>
+               </term>
+               <term xml:id="denomination">
+                  <term>Dénomination(s) spécifique(s)</term>
+                  <gloss>Autre(s) termes pour déigner la personne</gloss>
+               </term>
+               <term xml:id="categorieAge">
+                  <term>Catégorie d'âge</term>
+                  <gloss>Information sur l'âge de la personne (ex: adulte, enfant)</gloss>
+               </term>
+               <term xml:id="statut">
+                  <term>Statut</term>
+                  <gloss>Statut social de la personne (ex : libre, esclave, citoyenne etc.</gloss>
+               </term>
+               <term xml:id="fonction">
+                  <term>Fonction</term>
+                  <gloss>Fonction de la personne (ex : charge, activité sociale, économique, religieuse, politique etc.)</gloss>
+               </term>
+               <term xml:id="situation">
+                  <term>Situation personnelle</term>
+                  <gloss>Situation de la personne (ex: mariée, veuve, concubine de etc.)</gloss>
+               </term>
+               <term xml:id="genreDiscursif">
+                  <term>Nature du genre discursif</term>
+                  <gloss>
+                     Il s'agit d'apporter des informations sur la pratiques discursive où apparaît le nom. 
+                     Il est utile  d'utiliser une typologie proches des catégories antiques (et non de recourir
+                     aux catégories littéraires anachroniques) car celle-ci permet de saisir au mieux le contexte 
+                     d'énonciation.
+                  </gloss>
+               </term>
+               <term xml:id="enonciative">
+                  <term>Voix énonciative</term>
+                  <gloss>Identification de celle/celui qui parle. Décrire le dispositif qui porte l'énoncé</gloss>
+               </term>
+               <term xml:id="modalisation">
+                  <term>Modalisation</term>
+                  <gloss>Identifier le contexte dans lequel la figure apparaît et le cas échéant le jugement implicite
+                     ou explicite que la voix énonciative porte sur le personnage étudié. (ex : discours de blâme, 
+                     éloge, requête, plainte etc.). Préciser le regard que l'instance énonciative porte sur la personne étudiée.
+                  </gloss>
+               </term>
+               <term xml:id="action">
+                  <term>Action(s)</term>
+                  <gloss>Descriptif des actions de la personne, du contenu de l'occurence étudié</gloss>
+               </term>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date type="modification">{Notice_dateModification}</date>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   
+   <text>
+      <body n="urn:cts:anhima:eurykleia.commentaire-[0-9]+.export" xml:lang="mul">
+         
+         <div type="edition">
+            <div type="textpart" 
+               xml:lang=""
+               subtype="extract" 
+               corresp="{Extrait_urn}{Extrait_IDPH}">
+               <p>
+                  {Extrait_texteTranscrit}
+               </p>
+            </div>
+         </div>
+         
+         <div type="translation" xml:lang="">
+            <div type="translation">
+               <div type="textpart"
+                  xml:lang=""
+                  subtype="extract"
+                  corresp="{Extrait_urn}{Extrait_IDPH}">
+                  <p>
+                     {Traduction_texteTraduit}
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div type="commentary" ana="#commentaire">
+            <div type="commentary" 
+               n="femme"
+               corresp="{Femme_idLGPN}">
+               <p>
+                  <persName>
+                     <name xml:lang="">{Identite_nom_nom}</name>
+                     <name xml:lang="">{Femme_appellationUsuelle}</name>
+                  </persName>
+               </p>
+               <div type="textpart"
+                  subtype="surnom"
+                  ana="#surnom">
+                  <head>Surnom(s)</head>
+                  <p xml:lang="">
+                     {Identite_surnom_nomTranslittere}
+                  </p>
+                  <p xml:lang="">
+                     {Identite_surnom_nom}
+                  </p>
+               </div>
+               <div type="textpart"
+                  subtype="denomination"
+                  ana="#denomination">
+                  <head>Dénomination(s) spécifique(s)</head>
+                  <p xml:lang="">
+                     {Identite_denominationSpecifique_termeTranslittere}
+                  </p>
+                  <p xml:lang="">
+                     {Identite_denominationSpecifique_terme}
+                  </p>
+               </div>
+               <div type="textpart"
+                  subtype="categorieAge"
+                  ana="#categorieAge">
+                  <head>Catégorie d'âge</head>
+                  <p xml:lang="">
+                     {Identite_categorieAge_termeTranslittere}
+                  </p>
+                  <p xml:lang="">
+                     {Identite_categorieAge_terme}
+                  </p>
+               </div>
+               <div type="textpart"
+                  subtype="statut"
+                  ana="#statut">
+                  <head>Statut</head>
+                  <p xml:lang="">Statut_terme</p>
+                  <p xml:lang="">Statut_termeTranslittere</p> 
+               </div>
+               <div type="textpart"
+                  subtype="origine"
+                  ana="#origine">
+                  <head>Origine géographique</head>
+                  <p>
+                     <placeName ref="http://pleiades.stoa.org/places/">
+                        {Identite_origine}
+                     </placeName>
+                     
+                  </p>
+               </div>
+               <div type="textpart"
+                  subtype="fonction"
+                  ana="#fonction">
+                  <head>Fonction(s)</head>
+                  <p xml:lang="">
+                     {Identite_fonction_termeTranslittere}
+                  </p>
+                  <p xml:lang="">
+                     {Identite_fonction_terme}
+                  </p>
+               </div>
+               <div type="textpart"
+                  subtype="situation"
+                  ana="#situation">
+                  <head>Situation personnelle</head>
+                  <p xml:lang="">
+                     {Identite_situationPersonnelle_terme}
+                  </p>
+               </div>
+               <div type="textpart"
+                  subtype="personnesLiees"
+                  ana="#personnesLiees">
+                  <head>Personne(s) Liée(s)</head>
+                  <p>
+                     <persName>
+                        <name xml:lang="">{Identite_personnesliees_nom}</name>
+                        <name xml:lang="">{Identite_personnesliees_nomTranslittere}</name>
+                     </persName>
+                  </p>
+                  <p>{Identite_natureLien}</p>
+               </div>
+            </div>
+            <div type="commentary" n="extrait">
+               <div type="textpart" 
+                  subtype="genreDiscursif" 
+                  ana="#genreDiscursif">
+                  <head>Nature du genre discursif</head>
+                  <p>
+                     {Extrait_natureGenreDiscursif}
+                  </p>
+               </div>
+               <div type="textpart"
+                  subtype="enonciative"
+                  ana="#enonciative">
+                  <head>Voix énonciative</head>
+                  <p>{Extrait_voixEnonciative_description}</p>
+               </div>
+               <div type="textpart"
+                  subtype="modalisation"
+                  ana="#modalisation">
+                  <head>Modalisation</head>
+                  <p>{Extrait_modalisation_jugement}</p>
+                  <p>{Extrait_modalisation_description}</p>  
+               </div>
+               <div type="textpart"
+                  subtype="evenement"
+                  ana="#evenement">
+                  <head>Evénement(s)</head>
+                  <p>
+                     <date>{Extrait_evenement_datation}</date>
+                     {Extrait_evenement_description}
+                  </p>
+               </div>
+               <div type="textpart"
+                  subtype="action"
+                  ana="#action">
+                  <head>Action</head>
+                  <p>
+                     {Extrait_action}
+                  </p>
+               </div>
+            </div>
+           
+         </div>
+         
+         <div type="bibliography">
+            <head>Pistes bibliographiques</head>
+            <p>{Notice_referenceBibliographique}</p>
+         </div>
+      </body>
+   </text>
+</TEI>
