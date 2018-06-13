@@ -116,9 +116,19 @@
       <encodingDesc>
          <refsDecl n="CTS">
             <cRefPattern 
-               corresp="#commentaire"
-               matchPattern="(\w+)" 
-               replacementPattern="xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='$commentary']">
+               n="partie"
+               matchPattern="(\w+).(\w+).(\w+)"
+               replacementPattern="xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@type='$1']/tei:div[@n='$2']/tei:div[@subtype='$3']">
+            </cRefPattern>
+            <cRefPattern
+               n="section"
+               matchPattern="(\w+).(\w+)"
+               replacementPattern="xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@type='$1']/tei:div[@n='$2']">
+            </cRefPattern>
+            <cRefPattern
+               n="contenu"
+               matchPattern="(\w+)"
+               replacementPattern="xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@type='$1']">
             </cRefPattern>
          </refsDecl>
       </encodingDesc>
@@ -189,6 +199,7 @@
          <div type="edition">
             <div type="textpart" 
                xml:lang=""
+               n="{idPassage}"
                subtype="extract" 
                corresp="{Extrait_urn}{Extrait_IDPH}">
                <p>
@@ -198,7 +209,7 @@
          </div>
          
          <div type="translation" xml:lang="">
-            <div type="translation">
+            <div type="translation" n="traduction-{lang}">
                <div type="textpart"
                   xml:lang=""
                   subtype="extract"
@@ -346,8 +357,10 @@
          </div>
          
          <div type="bibliography">
-            <head>Pistes bibliographiques</head>
-            <p>{Notice_referenceBibliographique}</p>
+            <div type="bibliography" n="1">
+               <head>Pistes bibliographiques</head>
+               <p>{Notice_referenceBibliographique}</p>
+            </div>
          </div>
       </body>
    </text>
