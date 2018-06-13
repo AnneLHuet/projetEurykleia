@@ -96,6 +96,7 @@
                <history>
                   <origin>
                      <origPlace type="composed">
+                        <!-- ID du lieu à ne p[as oublier? -->
                         <placeName ref="http://pleiades.stoa.org/places/">
                            {Support_lieuProduction}
                         </placeName>
@@ -105,6 +106,7 @@
                      </origPlace>
                   </origin>
                   <provenance type="found">
+                     <!-- ID du lieu à ne p[as oublier? -->
                      <placeName ref="http://pleiades.stoa.org/places/">
                         {Support_lieuDecouverte}
                      </placeName>
