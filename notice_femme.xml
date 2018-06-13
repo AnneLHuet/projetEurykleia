@@ -21,7 +21,7 @@
             
             <sourceDesc>
                 <listBibl> 
-                    <bibl> <!-- pour chaque extrait -->
+                    <bibl xml:id="source_1"> <!-- pour chaque extrait -->
                         <ref type="oeuvre">
                             {Oeuvre_reference}
                         </ref>
@@ -54,7 +54,7 @@
                     xml:lang=""
                     subtype="extract" 
                     n="1" 
-                    corresp="{Extrait_urn}{Extrait_IDPH}">
+                    corresp="{Extrait_urn}{Extrait_IDPH} #source_1">
                     <p>
                         {Extrait_texteTranscrit}
                     </p>
@@ -65,7 +65,7 @@
                     xml:lang=""
                     subtype="extract"
                     n="1"
-                    corresp="{Extrait_urn}{Extrait_IDPH}">
+                    corresp="{Extrait_urn}{Extrait_IDPH} #source_1">
                     <p>
                         {Traduction_texteTraduit}
                     </p>
