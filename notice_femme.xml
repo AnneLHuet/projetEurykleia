@@ -16,7 +16,6 @@
             <publicationStmt>
                 <authority>Projet Eurykleia</authority>
                 <publisher> UMR 8210 ANHIMA (Anthropologie et Histoire des Mondes Antiques) </publisher>
-                <authority>Projet Eurykleia</authority>
             </publicationStmt>
             
             <sourceDesc>
@@ -32,6 +31,50 @@
                         <author>{Oeuvre_auteur_nom}</author>
                         <funder xml:lang="" corresp="{Oeuvre_commanditaire_idLGPN}">{Oeuvre_commanditaire_nom}</funder>
                     </bibl>
+                    <msDesc corresp="#source_1">
+                        <msIdentifier >
+                            <repository>
+                                {Support_lieuConservation}
+                            </repository>
+                            <idno>{Support_lieuConservation_inventaire}</idno>
+                        </msIdentifier>
+                        <physDesc>
+                            <objectDesc>
+                                <supportDesc>
+                                    <support>
+                                        <material>
+                                            {Support_technique},{Support_matiere}
+                                        </material>
+                                        <desc>{Support_description}</desc>
+                                        <objectType>{Support_designation}</objectType>
+                                        <dimensions>
+                                            <height unit="cm">{Support_hauteur}</height>
+                                            <width unit="cm">{Support_largeur}</width>
+                                        </dimensions>
+                                    </support>
+                                </supportDesc>
+                            </objectDesc>
+                        </physDesc>
+                        <history>
+                            <origin>
+                                <origPlace type="composed">
+                                    <!-- ID du lieu à ne p[as oublier? -->
+                                    <placeName ref="http://pleiades.stoa.org/places/">
+                                        {Support_lieuProduction}
+                                    </placeName>
+                                    <origDate>
+                                        {Support_lieuProduction_datation}
+                                    </origDate>
+                                </origPlace>
+                            </origin>
+                            <provenance type="found">
+                                <!-- ID du lieu à ne p[as oublier? -->
+                                <placeName ref="http://pleiades.stoa.org/places/">
+                                    {Support_lieuDecouverte}
+                                </placeName>
+                            </provenance>
+                        </history>
+                    </msDesc>
                 </listBibl>
             </sourceDesc>
         </fileDesc>
