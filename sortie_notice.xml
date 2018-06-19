@@ -5,7 +5,6 @@
    <teiHeader>
       <fileDesc>
          <!-- Informations relatives à l'édition de la notice -->
-         
          <titleStmt> 
             <title>
                <num></num>
@@ -55,6 +54,42 @@
                <funder xml:lang="">{Oeuvre_commanditaire_nomTranslittere}</funder> 
             </bibl>
             <!-- Peut-être ajouter ici en bibliographie une entrée pour les Pleiades et autres pour les présenter ici. -->
+            <listBibl>
+               <head>Liste des ressources en ligne utilisées</head>
+               <bibl>
+                  <title>Perseus Digital Library</title>
+                  <author><name>Gregory R.Crane</name></author>
+                  <publisher>Tufts University</publisher>
+               </bibl>
+               <bibl>
+                  <title>Packhum</title>
+                  <author><orgName>The Packard Humanities Institute</orgName></author>
+                  <publisher>
+                     <orgName>Cornell University</orgName>
+                     <orgName>Ohio State University</orgName>
+                  </publisher>
+               </bibl>
+               <bibl>
+                  <title>Europeana Eagle Project</title>
+                  <author><orgName>International digital epigraphy association</orgName></author>
+                  <publisher>Europeana network of Ancient Greek and Latin Epigraphy</publisher>
+               </bibl>
+               <bibl>
+                  <title>The Lexicon of Greek Personal Names (LGPN)</title>
+                  <author><orgName>Oxford University</orgName></author>
+                  <publisher>
+                     <orgName> Arts and Humanities Research Council</orgName>
+                     <orgName>the British Academy</orgName>
+                     <orgName>the Academy of Athens </orgName>
+                  </publisher>
+               </bibl>
+               <bibl>
+                  <title>Pleiades</title>
+                  <author><orgName>Ancient World Mapping Center and Institute for the Study of the Ancient World</orgName></author>
+                  <publisher>University of North Carolina at Chapel Hill</publisher>
+               </bibl>
+            </listBibl>
+            
             
             <listEvent> <!-- pour chaque événement de la notice-->
                <event xml:id="evenement">
@@ -65,10 +100,10 @@
             
             <!--  <listPlace>
                <place>
-                  <placeName></placeName>
-                  <idno>{id Pleiades}</idno>
+               <placeName></placeName>
+               <idno>{id Pleiades}</idno>
                </place>
-            </listPlace>-->
+               </listPlace>-->
             
             <msDesc>
                <msIdentifier >
@@ -98,12 +133,13 @@
                   <origin>
                      <origPlace type="composed">
                         <!-- ID du lieu à ne p[as oublier? -->
-                        <placeName ref="http://pleiades.stoa.org/places/">
+                        <placeName>
                            {Support_lieuProduction}
                         </placeName>
                         <origDate>
                            {Support_lieuProduction_datation}
                         </origDate>
+                        <idno>{Support_Lieuproduction_idPerenne}</idno>
                      </origPlace>
                   </origin>
                   <provenance type="found">
@@ -111,30 +147,33 @@
                      <placeName ref="http://pleiades.stoa.org/places/">
                         {Support_lieuDecouverte}
                      </placeName>
+                     <idno>Support_lieuDecouverte_idPerenne</idno>
                   </provenance>
                </history>
             </msDesc>
          </sourceDesc>
-      </fileDesc>      
-      <encodingDesc>
+      </fileDesc>
+      <!-- Revoir les expressions Xpath
+         <encodingDesc>
          <refsDecl n="CTS">
-            <cRefPattern 
-               n="partie"
-               matchPattern="(\w+).(\w+).(\w+)"
-               replacementPattern="xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@type='$1']/tei:div[@n='$2']/tei:div[@subtype='$3']">
-            </cRefPattern>
-            <cRefPattern
-               n="section"
-               matchPattern="(\w+).(\w+)"
-               replacementPattern="xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@type='$1']/tei:div[@n='$2']">
-            </cRefPattern>
-            <cRefPattern
-               n="contenu"
-               matchPattern="(\w+)"
-               replacementPattern="xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@type='$1']">
-            </cRefPattern>
+         <cRefPattern 
+         n="partie"
+         matchPattern="(\w+).(\w+).(\w+)"
+         replacementPattern="xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@type='$1']/tei:div[@n='$2']/tei:div[@subtype='$3']">
+         </cRefPattern>
+         <cRefPattern
+         n="section"
+         matchPattern="(\w+).(\w+)"
+         replacementPattern="xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@type='$1']/tei:div[@n='$2']">
+         </cRefPattern>
+         <cRefPattern
+         n="contenu"
+         matchPattern="(\w+)"
+         replacementPattern="xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@type='$1']">
+         </cRefPattern>  
          </refsDecl>
-      </encodingDesc>
+         </encodingDesc>
+      -->
       <profileDesc>
          <textClass>
             <keywords>
@@ -356,7 +395,7 @@
                   </p>
                </div>
             </div>
-           
+            
          </div>
          
          <div type="bibliography">
