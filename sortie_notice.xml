@@ -90,7 +90,6 @@
                </bibl>
             </listBibl>
             
-            
             <listEvent> <!-- pour chaque événement de la notice-->
                <event xml:id="evenement">
                   <label>{Extrait_Evenement_nom}</label>
@@ -98,12 +97,12 @@
                </event>
             </listEvent>
             
-            <!--  <listPlace>
-               <place>
-               <placeName></placeName>
-               <idno>{id Pleiades}</idno>
+            <listPlace>
+               <place> <!-- pour chaque lieux mentionnés dans la notice -->
+                  <placeName>{Lieux}</placeName>
+                  <idno>{id Pleiades}</idno>
                </place>
-               </listPlace>-->
+            </listPlace>
             
             <msDesc>
                <msIdentifier >
